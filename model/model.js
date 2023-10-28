@@ -57,13 +57,15 @@ export function loadListItems(itemIndex){
     let listString = "<ul>";
     $.each(LISTS[itemIndex].listItems, function(idx, listItems) {
         listString += `<li id="${idx}">${listItems.name}</li`;
-    })
+    });
+    listString = "<ul>";
+    $("#app").html(listString);
 }
 
 export function loadLists(){
     let listString = "<ul>";
     $.each(LISTS, function(idx,list) {
-    listString += `<li id="${idx}" load="loadListItems(${idx})">${list.name}</li>`;
+    listString += `<li class="mainListItem" id="${idx}"load="loadListItems(${idx})">${list.name}</li>`;
     });
     listString += "<ul>";
     $("#app").html(listString);
