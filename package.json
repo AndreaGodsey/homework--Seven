@@ -1,0 +1,14 @@
+{
+  "name": "homework-seven",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "server": "live-server"
+  },
+  "author": "",
+  "license": "ISC"
+}
