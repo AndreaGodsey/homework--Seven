@@ -2,21 +2,36 @@ import { loadListItems, loadLists } from "../model/model.js";
 
 
 function initListeners() {
-    $("#load").click(function (e){
-        $("load").toggleClass("active");
-        $("loadListItems").toggleClass("active");
+   
 
         loadLists();
 
         $(".mainListItem").click(function (e){
+            $.get("pages/details.html", function (data){
+                $('#app').html(data);
+          
             let btnID = e.currentTarget.id;
             loadListItems(btnID);
             console.log("The " +btnID+ " was clicked");
+            initBackButtonListeners();
         });
-    });
+        });
+    };
+
+
+function initBackButtonListeners(){
+    $("#BackButton").click (function(){
+        $.get('pages/home.html', function (data) {
+            $('#app').html(data);
+            initListeners();
+        });
+    })
 }
 
 
 $(document).ready(function (){
-    initListeners();
+    $.get('pages/home.html', function (data) {
+        $('#app').html(data);
+        initListeners();
+    });
 });
